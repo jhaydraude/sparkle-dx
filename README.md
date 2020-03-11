@@ -38,7 +38,7 @@ This project is licensed under the BSD 3-clause license - see the [LICENSE.md](L
 
 Deploy to scratch org using ADK:
 ===============================================
-[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://jhd-adk-pbo.herokuapp.com/launch?template=https://github.com/jhaydraude/sparkle-dx/tree/SparkleADK&email=required)
+[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://jhd-adk-pbo.herokuapp.com/launch?template=https://github.com/jhaydraude/sparkle-dx&email=required)
 
 
 
