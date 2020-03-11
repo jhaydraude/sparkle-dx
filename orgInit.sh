@@ -16,5 +16,5 @@ sfdx force:data:tree:import --plan sfdx-out/plan.json
 #Run Apex commands as needed
 sfdx force:apex:execute -f config/create-demo-data-setup.apex
 
-sfdx force:org:open
+sfdx force:org:open -p /lightning/n/Interviewer_Console
 
