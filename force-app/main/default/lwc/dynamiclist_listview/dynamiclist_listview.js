@@ -20,13 +20,13 @@ function getFieldValue(record, field) {
 
 export default class Dynamiclist_listview extends LightningElement {
 
-    @api headerText;
+    @api headerText = 'Positions';
 
     @track objectNamePrivate;
-    @api listViewSelected;
+    @api listViewSelected = 'All';
     // create getter and setter so we can call apex to save object api name on custom setting when we receive values from App Builder
 
-    @api objectName;
+    @api objectName = 'Position__c';
 
     /*
     @api
