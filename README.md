@@ -35,15 +35,10 @@ This project is licensed under the BSD 3-clause license - see the [LICENSE.md](L
 
 ## Acknowledgments
 
-* Dreamhouse App
 
-Deploy to scratch org: Make sure you have created connected app in your developer hub org and assigned that connected app to the profile you are going to authorize against.
+Deploy to scratch org using ADK:
 ===============================================
-[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://labappdeploy.herokuapp.com/?template=https://github.com/rreboucas/sparkle-dx.git&sco=true)
+[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://jhd-adk-pbo.herokuapp.com/launch?template=https://github.com/jhaydraude/sparkle-dx/tree/SparkleADK&email=required)
 
-
-Deploy to regular dev org: 
-===========================
-[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://labappdeploy.herokuapp.com/?template=https://github.com/rreboucas/sparkle-dx.git&sco=false)
 
 
