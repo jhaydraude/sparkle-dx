@@ -3,6 +3,21 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>headerText</name>
+                <value>Positions</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>listViewSelected</name>
+                <value>All</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>objectName</name>
+                <value>Position__c</value>
+            </componentInstanceProperties>
+            <componentName>dynamiclist_listview</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>buttonLabel</name>
                 <value>Start</value>
             </componentInstanceProperties>
