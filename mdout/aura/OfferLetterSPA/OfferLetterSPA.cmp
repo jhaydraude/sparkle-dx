@@ -1,0 +1,83 @@
+
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:LightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes" access="global" 
+                controller="OfferLetterCompController">
+    
+	
+    <aura:attribute name="candidateName" type="String" access="global" />
+    <aura:attribute name="positionName" type="String" access="global" />
+    <aura:attribute name="positionId" type="String" access="global" />
+    <aura:attribute name="email" type="String" access="global" />
+    <aura:attribute name="offerId" type="String" access="global" />
+    <aura:attribute name="offerName" type="String" access="global" />  
+    <aura:attribute name="offerText" type="String" access="global" />  
+    <aura:attribute name="offerSubject" type="String" access="global" /> 
+    <aura:attribute name="sendResult" type="String" access="global" />
+    <aura:attribute name="progressStep" type="String" default="1" access="global" />   
+    <aura:attribute name="variant" type="String" default="non-linear"/>
+    <aura:attribute name="hideUpdateButton" type="Boolean" default="true"/>
+    
+    <aura:registerEvent name="DetailEventEvent" type="c:CandidateDetailEvent"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="bubblingEvent" event="c:OfferSPANotifierEvent" action="{!c.handleBubbling}"/>
+    <!--<aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/> -->
+    
+    
+    <div class="c-container">
+        <lightning:layout horizontalAlign="space">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <h3 class="slds-section-title--divider">Send Offer</h3>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                
+                <!-- Progress Bar -->
+                <lightning:progressIndicator aura:id="progress" currentStep="{!v.progressStep}" type="path" hasError="false" variant="base">
+                  <lightning:progressStep label="Details" value="1"/>
+                  <lightning:progressStep label="Edit" value="2"/>
+                  <lightning:progressStep label="Review" value="3"/>
+                  <lightning:progressStep label="Result" value="4"/>
+              </lightning:progressIndicator>
+                      
+                
+                
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <!-- Offer Details LC (1st to display) - Start -->
+	<div  aura:id="detailsDiv">
+        <c:OfferDetails candidateId="{!v.recordId}" aura:id="details"/>   
+    </div>
+    <!-- Offer Details LC (1st to display) - End -->
+    
+    <!-- Offer Template LC (2nd to display) - Start -->
+	<div aura:id="templateDiv">
+        <c:OfferTemplate aura:id="template"/>   
+    </div>
+    <!-- Offer Template LC (2nd to display) - End -->
+    
+    <!-- Offer Preview LC (3rd to display) - Start -->
+	<div aura:id="previewDiv">
+        <c:OfferPreview aura:id="preview"/>   
+    </div>
+    <!-- Offer Preview LC (3rd to display) - End -->
+    <!-- Offer Confirm LC (4th to display) - Start -->
+	<div aura:id="confirmDiv">
+        <c:OfferConfirm aura:id="confirm"/>   
+    </div>
+    <!-- Offer Confirm LC (4th to display) - End -->
+    
+    
+</aura:component>

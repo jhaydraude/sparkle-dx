@@ -1,0 +1,99 @@
+
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<aura:component controller="Twitter_Lightning_Controller" access="global" >
+	<aura:attribute name="recordId" type="String" access="GLOBAL"/>
+    <aura:attribute name="fullName" type="String" access="GLOBAL"/>
+	<aura:attribute name="record" type="Twitter_Lightning_Controller" access="global"/>
+	<aura:attribute name="rec" type="Twitter_Lightning_Controller" access="global"/>
+	<aura:attribute name="hasRecords" type="Boolean" default="false" access="global"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" access="global"/>
+    <aura:handler event="c:TwitterRecordEvent" action="{!c.handleApplicationEvent}" access="global"/>
+
+
+
+    <div class="slds slds-is-relative" style="padding-top: 0.5%;padding-right: 0.5%;padding-bottom: 0.5%; padding-left: 0.5%;">
+
+                <lightning:spinner aura:id="mySpinner" variant="brand" size="large"/>
+    
+	<aura:if isTrue="{!v.hasRecords}">
+        
+
+            <lightning:layout multipleRows="true">
+                    
+                    <lightning:layoutItem size="12">
+                        <lightning:layout horizontalAlign="spread">
+                            <lightning:layoutItem class="imgColumn" padding="around-small" size="1" largeDeviceSize="3" mediumDeviceSize="2" smallDeviceSize="12">
+                                
+                                    <lightning:avatar size="large" class="imageSize" variant="circle" src="{!v.rec.pictureUrl}" initials="IM" fallbackIconName="standard:avatar" alternativeText="Twitter Profile Image"/> 
+
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="infoColumn" padding="around-small" size="1" largeDeviceSize="3" mediumDeviceSize="4" smallDeviceSize="12">
+
+                                    <lightning:layout horizontalAlign="spread" verticalAlign="center" class="x-large" >
+                                            <lightning:layoutItem class="icons" flexibility="auto" padding="around-small">
+                                                    <lightning:icon size="x-small" iconName="utility:home" alternativeText="home" variant="home"/>
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem class="metrics" flexibility="grow" padding="around-small">
+                                                <div class="custom-box">{!v.rec.location}</div>
+                                            </lightning:layoutItem>
+                                    </lightning:layout>
+
+                                    <lightning:layout horizontalAlign="spread" verticalAlign="center" class="x-large">
+                                            <lightning:layoutItem class="icons" flexibility="auto" padding="around-small">
+                                                    <lightning:icon size="x-small" iconName="utility:people" alternativeText="followers" variant="followers"/>
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem class="metrics" flexibility="grow" padding="around-small">
+                                                <div class="custom-box">Followers: {!v.rec.numFollowers}</div>
+                                            </lightning:layoutItem>
+                                    </lightning:layout>
+
+                                    <lightning:layout horizontalAlign="spread" verticalAlign="center" class="x-large">
+                                            <lightning:layoutItem class="icons" flexibility="auto" padding="around-small">
+                                                    <lightning:icon size="x-small" iconName="utility:people" alternativeText="followers" variant="followers"/>
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem class="metrics" flexibility="grow" padding="around-small">
+                                                <div class="custom-box">Follows: {!v.rec.numFollowers}</div>
+                                            </lightning:layoutItem>
+                                    </lightning:layout>
+
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="tweetColumn" padding="around-small" size="1" largeDeviceSize="6" mediumDeviceSize="5" smallDeviceSize="12">
+                                <div class="page-section page-right">
+                                        <lightning:layout pullToBoundary="small" horizontalAlign="end" verticalAlign="center" class="x-small">
+                                                <lightning:layoutItem class="" flexibility="auto" padding="around-small" size="1">
+                                                        <lightning:avatar size="x-small" variant="circle" src="{!$Resource.lightningicons + '/lightningicons/images/Twitter_logo_blue.png'}" initials="TW" fallbackIconName="standard:avatar" alternativeText="Twitter Logo"/>
+                                                </lightning:layoutItem>
+                                                <lightning:layoutItem class="" flexibility="auto" padding="around-small" size="11">
+                                                        {!v.rec.tweetDate}
+                                                </lightning:layoutItem>
+                                        </lightning:layout>
+                                        <lightning:layout pullToBoundary="small" horizontalAlign="end" verticalAlign="center" class="x-small">
+                                                <lightning:layoutItem class="" flexibility="auto" padding="around-small" size="12">
+                                                        <a  onclick="{!c.OpenTweet}">{!v.rec.tweetText} </a>
+                                                </lightning:layoutItem>
+                                                
+                                        </lightning:layout>
+
+
+                                </div>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                    
+                </lightning:layout>
+
+
+        </aura:if>
+    </div>
+	
+
+
+
+
+</aura:component>
